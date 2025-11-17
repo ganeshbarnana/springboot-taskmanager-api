@@ -1,0 +1,99 @@
+/* style.css
+   Simple, clean styling for the Employee Directory frontend.
+   One-file CSS so you can read and modify quickly.
+*/
+
+/* 1. Page basics: use a readable font and provide comfortable margins */
+html, body {
+    height: 100%;
+    margin: 0;               /* remove default browser margin */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #f7fafc;     /* very light, neutral background */
+    color: #111827;          /* dark text for contrast */
+}
+
+/* 2. Center the main content and limit width for readability */
+body > main, .container {
+    max-width: 900px;        /* keeps content narrow on wide screens */
+    margin: 32px auto;       /* centers horizontally and gives top/bottom space */
+    padding: 20px;
+}
+
+/* 3. Heading styles */
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+/* 4. Form layout: simple responsive grid for inputs */
+form#employeeForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* 5. Form inputs: consistent look and clear affordance */
+input[type="text"],
+input[type="email"],
+button[type="submit"] {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db; /* subtle border */
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* 6. Input focus state for accessibility and visibility */
+input[type="text"]:focus,
+input[type="email"]:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08); /* subtle focus ring */
+    border-color: rgba(99, 102, 241, 0.6);
+}
+
+/* 7. Submit button styling: distinguish it from inputs */
+button[type="submit"] {
+    background: #2563eb;     /* blue */
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding-left: 14px;
+    padding-right: 14px;
+    justify-self: start;     /* keep button left aligned in grid */
+}
+
+/* 8. Hover and active states for button (basic affordances) */
+button[type="submit"]:hover {
+    filter: brightness(0.95);
+}
+button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* 9. Result area styling (messages + success card) */
+#result {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.03);
+    min-height: 36px;
+}
+
+/* 10. Small utility classes for message colors */
+.text-red {
+    color: #b91c1c;
+}
+.text-green {
+    color: #047857;
+}
+
+/* 11. Small responsive tweaks: make inputs full width on tiny screens */
+@media (max-width: 420px) {
+    form#employeeForm {
+        grid-template-columns: 1fr;
+    }
+}
